@@ -1,2 +1,5 @@
 #ds.store 파일 무시
 ds.store
+
+#node_modules 무시
+node_modules/

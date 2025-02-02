@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+</head>
+<body>
+    <div><span id ="order">1</span>번째 참가자</div>
+    <div>제시어: <span id ="word"></span></div>
+    <input type="text"/>
+    <button>입력</button>
+    <button class="hello">버튼2</button>
+    <button class="hello">버튼3</button>
+    <script>
+        //document = html 문서를 가리킴.
+        //querySelector('선택자'); 선택자: html 태그를 가져오게 도와주는 문자열
+        
+        const $$buttons = document.querySelectorAll('button');
+        console.log($$buttons);
+
+        //id속성은 한 번만 사용할 수 있는 고유한 값이고, id속성 값 앞에 #을 붙여 선택자로 사용할 수 있다.
+        const $order = document.querySelector('#order');
+        console.log($order);
+
+        //class속성은 여러번 사용할 수 있고, 선택할 때에는 속성 값 앞에 . 를 붙여 선택할 수 있다.
+        const $$button = document.querySelectorAll('.hello');
+        console.log($$button);
+
+        //태그 안의 태그를 선택하는 방법은, 선택자 사이에 공백을 주어 구분한다.
+        const $span = document.querySelector('div span');
+        console.log($span);
+
+        //'1번째 참가자' 에서 1을 가져오는 방법 - 태그.textContext
+        console.log($order.textContent);
+        
+        const $div = document.querySelector('div');
+        console.log($div.textContent);
+
+        //태그 까지 가져오고 싶을 때 - 태그.innerHtml
+        console.log($div.innerHTML);
+
+        //텍스트와 태그 변경하기 - 태그.textContent = 값;
+        $order.textContent = 2;
+
+        //태그 추가하기 -innerHTML
+        $div.innerHTML = '';
+        const $button = document.querySelector('button');
+        $button.innerHTML = '<b>굵게</b>'
+
+        //입력태그 값 가져와 변경하기 - 입력 태그(input, textarea)는 다른 태그(textContent)와 다르게 value를 사용한다.
+        const $input = document.querySelector('input');
+        console.log($input.value);
+    </script>
+</body>
+</html>
+
+<!-- script 태그안에는 js코드를 작성하고, script 태그는 다른 html 태그들 보다 아래에 있어야 한다.
+DOM: 웹 브라우저가 현재 페이지의 HTML을 자바스크립트 객체로 구성하여 document객체를 통해 HTML 태그를 선택하는 것. DOM은 document 객체를 통해 접근 및 조작이 가능하다. 
+태그를 한번에 선택하고, 출력했을 때 여러 태그가 배열처럼 출력되지만, Nodelist라는 특수한 객체가 된다.
+만약, 여러개의 같은 태그를 querySelector 를 사용하면, 첫번째 태그만 출력된다.
+-->
